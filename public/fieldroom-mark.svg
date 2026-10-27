@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">Fieldroom</title>
+  <rect x="3" y="3" width="74" height="74" rx="21" fill="#1d4030"/>
+  <path d="M22 53V23h34v13H37v10h13" fill="none" stroke="#f4f3ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+  <path d="M22 53h18" fill="none" stroke="#f4f3ee" stroke-linecap="round" stroke-width="5"/>
+  <path d="M53 58c-6.3-7.3-9.5-12.2-9.5-16.7a9.5 9.5 0 1 1 19 0c0 4.5-3.2 9.4-9.5 16.7Z" fill="#b8cf9e"/>
+  <circle cx="53" cy="41" r="3.2" fill="#1d4030"/>
+</svg>

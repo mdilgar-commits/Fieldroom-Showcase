@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#152820">
+  <link rel="icon" type="image/svg+xml" href="/fieldroom-mark.svg">
+  <title>Fieldroom · Room Matrix</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/project-review.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Fieldroom home"><img class="brand-logo" src="/fieldroom-logo-reversed.svg" alt="Fieldroom project field guide"></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <details id="manager-backend-nav" class="manager-backend-nav">
+          <summary class="nav-item"><span>⚙</span>Project Manager Backend<span class="nav-chevron">⌄</span></summary>
+          <div class="manager-nav-submenu">
+            <button data-view="documents" class="nav-item nav-sub-item"><span>▤</span>Project Setup <i id="doc-count">0</i></button>
+            <button data-view="home" class="nav-item nav-sub-item"><span>⌂</span>Project Overview</button>
+          </div>
+        </details>
+        <button data-view="progress" class="nav-item"><span>◔</span>Project progress</button>
+        <button data-view="general" class="nav-item"><span>☷</span>Project deliverables</button>
+        <button data-view="matrix" class="nav-item"><span>▦</span>Room matrix</button>
+        <button data-view="scan" class="nav-item"><img class="qr-icon" src="/qr-code-icon.svg" alt=""><span class="nav-copy">Scan room QR</span></button>
+      </nav>
+      <div class="sidebar-foot"><span class="local-dot"></span><span>Local project server</span><button id="help-button" title="About this prototype">?</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><div class="project-switcher"><span>PROJECT</span><select id="project-select" aria-label="Switch project"><option>Loading projects…</option></select><button class="btn secondary small" id="new-project-button" type="button">＋ New project</button><button class="btn secondary small reset-project-button" id="reset-project-button" type="button" title="Clear the active project’s profile, documents, and deliverables">↺ Reset project</button></div><div class="top-actions"><span id="save-state" class="save-state">Saved locally</span><button class="icon-button" id="top-scan" title="Scan a room QR code"><img class="qr-icon" src="/qr-code-icon.svg" alt=""></button><button class="avatar" id="signout-button" title="Sign out">F</button></div></header>
+      <div id="app-content" class="content"></div>
+    </main>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <details class="manager-backend-nav mobile-manager-backend"><summary><span>⚙</span>Manage</summary><div class="manager-nav-popover"><button data-view="documents"><span>▤</span>Project Setup</button><button data-view="home"><span>⌂</span>Project Overview</button></div></details><button data-view="progress"><span>◔</span>Progress</button><button data-view="general"><span>☷</span>Project</button><button data-view="matrix"><span>▦</span>Rooms</button><button data-view="scan"><img class="qr-icon" src="/qr-code-icon.svg" alt="">Scan</button>
+  </nav>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="modal-root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Uploads and downloads pass through the Fieldroom server after token and
+    // email allowlist checks. Do not enable direct client access by default.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
