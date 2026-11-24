@@ -80,7 +80,7 @@
           <article class="feature-card"><span class="feature-number">03</span><div class="feature-icon">☷</div><h3>Tracking project-wide deliverables</h3><p>Submittals, closeout documents, warranties, meetings, and training are tracked for every trade on the job.</p></article>
           <article class="feature-card"><span class="feature-number">04</span><div class="feature-icon">▦</div><h3>QR scanning</h3><p>Each room has its own QR code. Scanning it at the door opens that room’s checklist on a phone.</p></article>
           <article class="feature-card"><span class="feature-number">05</span><div class="feature-icon">↗</div><h3>Making field updates</h3><p>Crews mark items complete, add field notes, and attach photos from the room where the work happens.</p></article>
-          <article class="feature-card"><span class="feature-number">06</span><div class="feature-icon">◔</div><h3>Progress tracking by room and trade</h3><p>Completion rolls up by room and by trade, with a CSV export of the full matrix for meetings and closeout.</p></article>
+          <article class="feature-card"><span class="feature-number">06</span><div class="feature-icon">◔</div><h3>Progress tracking by room and trade</h3><p>Completion rolls up by room and by trade, with an activity log of who changed what and a CSV export for meetings and closeout.</p></article>
         </div>
       </div>
     </section>
@@ -95,8 +95,10 @@
           <p>When a project manager clicks <b>Extract</b>, Fieldroom sends the uploaded floor plan and specifications to <b>Google’s Gemini 3.5 Flash Lite</b> model. Gemini reads the drawings as images and the specifications as text, and returns structured results: the rooms, the responsible trades, each room’s deliverables, project-wide requirements, and the specification section behind every item.</p>
           <p>Fieldroom then splits combined requirements into one item per trade, removes duplicates, and places every suggestion in a review queue. Nothing reaches the room matrix until a person approves it.</p>
           <ul class="ai-points">
-            <li><b>Traceable.</b> Every suggestion cites its source document, page, and section.</li>
+            <li><b>Traceable.</b> Every suggestion cites its source document, page, and section, and Fieldroom checks that the cited document, page, and section exist. Doubtful citations are flagged for the reviewer.</li>
+            <li><b>Completeness check.</b> A second AI pass looks only for requirements the first pass missed, and marks anything it adds.</li>
             <li><b>Human in the loop.</b> Subcontractors, rooms, and requirements are each confirmed or edited.</li>
+            <li><b>Accountable.</b> Every approval, completion, note, and photo is recorded with who made it and when.</li>
             <li><b>Secure.</b> The API key stays on the server and never reaches the browser or the code repository.</li>
             <li><b>AI-assisted development.</b> Claude Code was used to build, test, and fix the application.</li>
           </ul>
@@ -132,6 +134,8 @@
         <article><div class="imp-num">3</div><div><h3>API integration problems</h3><p class="was"><b>Before:</b> the Gemini API key was not reaching the application, so it could not communicate with the AI model.</p><p class="now"><b>Now:</b> the key is stored in Google AI Studio’s Secrets panel and sent the way Google’s new keys require. It never appears in the code or the browser.</p></div></article>
         <article><div class="imp-num">4</div><div><h3>Limited AI usage</h3><p class="was"><b>Before:</b> the original model allowed only about 20 free requests a day.</p><p class="now"><b>Now:</b> Fieldroom uses Gemini 3.5 Flash Lite, which allows about 500 free requests a day, and explains key, quota, and model problems in plain language.</p></div></article>
         <article><div class="imp-num">5</div><div><h3>Code management issues</h3><p class="was"><b>Before:</b> syncing code back from AI Studio overwrote newer fixes, and troubleshooting was hard to trace.</p><p class="now"><b>Now:</b> every fix follows one path, change → review → merge → publish, on its own GitHub branch and pull request, with automated tests and evidence-based troubleshooting.</p></div></article>
+        <article><div class="imp-num">6</div><div><h3>Accountability tracking</h3><p class="was"><b>Before:</b> there was no record of who completed, changed, or approved a deliverable.</p><p class="now"><b>Now:</b> the server keeps an activity log of every upload, AI extraction, approval, completion, note, and photo, with who and when. It appears in each deliverable’s history and on the Project progress page, and can be exported to CSV.</p></div></article>
+        <article><div class="imp-num">7</div><div><h3>Improved AI accuracy</h3><p class="was"><b>Before:</b> extraction was a single AI pass, and citations were not checked.</p><p class="now"><b>Now:</b> answers are more consistent, a completeness check finds requirements the first pass missed, and every citation is checked against the uploaded documents, with doubtful items flagged for the reviewer.</p></div></article>
       </div>
       <div class="feedback-note" id="feedback"><span>↗</span><p><b>Midterm feedback and lessons learned</b><br><span data-fill="feedback">What we learned and the changes it led to.</span></p></div>
     </section>
@@ -144,12 +148,11 @@
         <div class="next-grid">
           <div>
             <h3 class="next-title">Future improvements</h3>
+            <p class="next-note">Accountability tracking and improved AI accuracy are now built in (see improvements 6 and 7).</p>
             <ul class="next-list">
               <li><b>Permanent data storage.</b> Integrate Firebase so project information is not lost when the application restarts.</li>
               <li><b>User authentication.</b> Secure sign-in and role-based permissions for project managers and subcontractors.</li>
               <li><b>Multiple project management.</b> Separate documents, team members, room matrices, and progress records for each project.</li>
-              <li><b>Accountability tracking.</b> An audit trail of who completed, modified, or approved each deliverable.</li>
-              <li><b>Improved AI accuracy.</b> Refine extraction and review to reduce errors and missing requirements.</li>
             </ul>
           </div>
           <div>
