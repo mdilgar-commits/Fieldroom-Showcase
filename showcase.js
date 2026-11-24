@@ -14,7 +14,7 @@ const SHOWCASE = {
   demoVideo: "https://youtu.be/5q3dTZwLFVY",
 
   // Published Google AI Studio link (usually ends in .run.app). Leave empty to hide the button.
-  liveDemo: "",
+  liveDemo: "https://fieldroom-1.ai.studio/",
 
   // Midterm feedback and lessons learned, and what changed because of each.
   // One entry per point: { feedback: "What we learned", change: "What we changed" }
