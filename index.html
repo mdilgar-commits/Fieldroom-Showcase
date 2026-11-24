@@ -15,7 +15,7 @@
 <body>
   <header class="nav wrap">
     <a class="brand" href="#top" aria-label="Fieldroom home"><img class="brand-logo" src="assets/fieldroom-mark.svg" alt=""><span>fieldroom<span class="brand-dot">.</span></span></a>
-    <nav aria-label="Main navigation"><a href="#team">Team</a><a href="#product">Product</a><a href="#features">Features</a><a href="#ai">AI</a><a href="#demo">Demo</a><a href="#improvements">Improvements</a></nav>
+    <nav aria-label="Main navigation"><a href="#team">Team</a><a href="#product">Product</a><a href="#features">Features</a><a href="#ai">AI</a><a href="#demo">Demo</a><a href="#improvements">Improvements</a><a href="#next">Next</a></nav>
     <a class="nav-cta" href="#demo">Watch the demo <span>↓</span></a>
   </header>
 
@@ -59,7 +59,12 @@
           <p><b>The problem.</b> On every construction project, the requirements for each room are spread across floor plans, specification sections, and scope documents. Teams rebuild that picture by hand in spreadsheets and binders, and items are easy to miss until closeout.</p>
           <p><b>The product.</b> Fieldroom reads the documents with AI, proposes the rooms, trades, and deliverables it finds with their source sections, and lets a project manager confirm each one. The approved list becomes a shared checklist that field crews update from their phones.</p>
           <p><b>Who it is for.</b></p>
-          <div class="audience-tags"><span>Project managers</span><span>General contractors</span><span>Trade partners and subcontractors</span><span>Superintendents and field crews</span><span>Closeout coordinators</span></div>
+          <div class="users">
+            <div class="user-card"><h3>Project managers &amp; project engineers</h3><p>Organize construction documents, review extracted requirements, manage deliverables, and identify incomplete work before closeout.</p></div>
+            <div class="user-card"><h3>Superintendents</h3><p>Monitor field progress, coordinate subcontractor activities, and verify that work is complete.</p></div>
+            <div class="user-card"><h3>Quality control &amp; closeout teams</h3><p>Review room completion records, find outstanding items, and confirm required deliverables are done before turnover.</p></div>
+            <div class="user-card"><h3>Subcontractors &amp; trade foremen</h3><p>Scan room QR codes to see assigned deliverables, review requirements, and update completion status.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -122,13 +127,43 @@
       <div class="section-kicker">06 / PRODUCT DEVELOPMENT &amp; IMPROVEMENTS</div>
       <div class="evolution-head"><h2>From midterm prototype<br><em>to a working product.</em></h2><p>At the Midterm Showcase, Fieldroom was a prototype that ran on one computer. Since then the team focused on making it reliable, shareable, and easier to use.</p></div>
       <div class="improvements">
-        <article><div class="imp-num">1</div><div><h3>A working, shareable product</h3><p class="was"><b>Before:</b> the app ran only on a local computer.</p><p class="now"><b>Now:</b> Fieldroom is published as a public demo through Google AI Studio that anyone can open from a link, and a startup error that left pages blank has been fixed.</p></div></article>
-        <article><div class="imp-num">2</div><div><h3>Reliable AI extraction</h3><p class="was"><b>Before:</b> extraction needed a manual server setup with a Gemini key.</p><p class="now"><b>Now:</b> Fieldroom uses Google’s official Gemini software and the free-tier Gemini 3.5 Flash Lite model (about 500 extractions a day), supports Google’s new API keys, sends PDFs and images correctly, and explains any key, quota, or model problem in plain language.</p></div></article>
-        <article><div class="imp-num">3</div><div><h3>A simpler, faster review</h3><p class="was"><b>Before:</b> confirming each room required placing a marker on the floor plan, which could stall the review.</p><p class="now"><b>Now:</b> the review moves straight from each room to its requirements, and the room matrix is a searchable list. The drawing-based map is now optional and can be switched back on.</p></div></article>
-        <article><div class="imp-num">4</div><div><h3>Safer to share</h3><p class="was"><b>Before:</b> a personal email address was built into the code, and a misconfigured server could run without sign-in.</p><p class="now"><b>Now:</b> personal details were removed, the API key lives only in AI Studio’s Secrets, hosted copies require sign-in unless a public demo is turned on deliberately, and copies on a personal computer stay private.</p></div></article>
-        <article><div class="imp-num">5</div><div><h3>Built to keep working</h3><p class="was"><b>Before:</b> no automated checks, and lost uploads caused confusing errors.</p><p class="now"><b>Now:</b> automated tests run before every change, each change is reviewed through a GitHub pull request, and files lost after a demo-server restart are flagged with clear instructions.</p></div></article>
+        <article><div class="imp-num">1</div><div><h3>Application startup issues</h3><p class="was"><b>Before:</b> a startup bug stopped the application from running properly in Google AI Studio.</p><p class="now"><b>Now:</b> the bug is fixed, and Fieldroom is published as a public demo that anyone can open from a link.</p></div></article>
+        <article><div class="imp-num">2</div><div><h3>Unreliable room map generation</h3><p class="was"><b>Before:</b> the drawing-based room map glitched repeatedly and could stall the room review.</p><p class="now"><b>Now:</b> a searchable room list replaces the map, and the review moves straight from each room to its requirements. The map was turned off, not deleted, so it can return once it is reliable.</p></div></article>
+        <article><div class="imp-num">3</div><div><h3>API integration problems</h3><p class="was"><b>Before:</b> the Gemini API key was not reaching the application, so it could not communicate with the AI model.</p><p class="now"><b>Now:</b> the key is stored in Google AI Studio’s Secrets panel and sent the way Google’s new keys require. It never appears in the code or the browser.</p></div></article>
+        <article><div class="imp-num">4</div><div><h3>Limited AI usage</h3><p class="was"><b>Before:</b> the original model allowed only about 20 free requests a day.</p><p class="now"><b>Now:</b> Fieldroom uses Gemini 3.5 Flash Lite, which allows about 500 free requests a day, and explains key, quota, and model problems in plain language.</p></div></article>
+        <article><div class="imp-num">5</div><div><h3>Code management issues</h3><p class="was"><b>Before:</b> syncing code back from AI Studio overwrote newer fixes, and troubleshooting was hard to trace.</p><p class="now"><b>Now:</b> every fix follows one path, change → review → merge → publish, on its own GitHub branch and pull request, with automated tests and evidence-based troubleshooting.</p></div></article>
       </div>
-      <div class="feedback-note" id="feedback"><span>↗</span><p><b>Changes informed by midterm feedback</b><br><span data-fill="feedback">Midterm feedback and the changes it led to will be listed here.</span></p></div>
+      <div class="feedback-note" id="feedback"><span>↗</span><p><b>Midterm feedback and lessons learned</b><br><span data-fill="feedback">What we learned and the changes it led to.</span></p></div>
+    </section>
+
+    <!-- 07 WHAT'S NEXT -->
+    <section class="next-band" id="next">
+      <div class="wrap section">
+        <div class="section-kicker light-kicker">07 / WHAT’S NEXT</div>
+        <div class="features-heading"><h2>From demo<br>to the jobsite.</h2><p>Planned improvements and the recommendations that guide them.</p></div>
+        <div class="next-grid">
+          <div>
+            <h3 class="next-title">Future improvements</h3>
+            <ul class="next-list">
+              <li><b>Permanent data storage.</b> Integrate Firebase so project information is not lost when the application restarts.</li>
+              <li><b>User authentication.</b> Secure sign-in and role-based permissions for project managers and subcontractors.</li>
+              <li><b>Multiple project management.</b> Separate documents, team members, room matrices, and progress records for each project.</li>
+              <li><b>Accountability tracking.</b> An audit trail of who completed, modified, or approved each deliverable.</li>
+              <li><b>Improved AI accuracy.</b> Refine extraction and review to reduce errors and missing requirements.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="next-title">Recommendations</h3>
+            <ul class="next-list">
+              <li><b>Prioritize reliability.</b> Make existing functions work consistently before adding features.</li>
+              <li><b>Broaden document compatibility.</b> Test with different drawing formats, specification layouts, and project types.</li>
+              <li><b>Simplify navigation.</b> Make switching between project information, room matrices, and deliverables easier for field personnel.</li>
+              <li><b>Improve data security.</b> Add secure document storage and restricted project access before using confidential construction documents.</li>
+              <li><b>Focus on practical applications.</b> Prioritize features that simplify field communication, progress tracking, and closeout.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="final-cta wrap" id="links">

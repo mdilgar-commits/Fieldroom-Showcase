@@ -16,9 +16,20 @@ const SHOWCASE = {
   // Published Google AI Studio link (usually ends in .run.app). Leave empty to hide the button.
   liveDemo: "",
 
-  // What reviewers said at the Midterm Showcase and what changed because of it.
-  // One entry per point: { feedback: "What we heard", change: "What we changed" }
-  midtermFeedback: [],
+  // Midterm feedback and lessons learned, and what changed because of each.
+  // One entry per point: { feedback: "What we learned", change: "What we changed" }
+  midtermFeedback: [
+    { feedback: "Consider how the product will be used in the field. Some ideas work better on paper than on a jobsite.",
+      change: "Replaced the glitchy drawing map with a searchable room list and focused on QR access and quick field updates." },
+    { feedback: "Tracking progress is one of the most important tools project engineers look for.",
+      change: "Made progress tracking by room and trade a core feature, with completion rolled up across trades and a CSV export." },
+    { feedback: "Connecting the API key properly should be the first priority. Without it, the tool does not work.",
+      change: "Moved the Gemini key into AI Studio’s Secrets panel so extraction works reliably and the key never appears in the code." },
+    { feedback: "AI needs exact instructions. Leaving room for assumptions is where errors occur.",
+      change: "Fieldroom’s instructions to the AI spell out exactly what to return, including a source citation for every item, and errors now explain what went wrong and how to fix it." },
+    { feedback: "The model you choose greatly affects how much you can use the tool.",
+      change: "Switched to Gemini 3.5 Flash Lite for about 500 free requests a day." },
+  ],
 };
 // ============================================================
 
@@ -88,7 +99,7 @@ if (feedbackBox) {
     list.className = "feedback-list";
     for (const point of SHOWCASE.midtermFeedback) {
       const item = document.createElement("li");
-      item.innerHTML = `<b>We heard:</b> <span class="heard"></span><br><b>We changed:</b> <span class="changed"></span>`;
+      item.innerHTML = `<b>Lesson:</b> <span class="heard"></span><br><b>Change:</b> <span class="changed"></span>`;
       item.querySelector(".heard").textContent = point.feedback;
       item.querySelector(".changed").textContent = point.change;
       list.appendChild(item);
