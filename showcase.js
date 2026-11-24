@@ -11,7 +11,7 @@ const SHOWCASE = {
   ],
 
   // YouTube (Unlisted is fine), Google Drive, or Vimeo link to the demo video.
-  demoVideo: "",
+  demoVideo: "https://youtu.be/5q3dTZwLFVY",
 
   // Published Google AI Studio link (usually ends in .run.app). Leave empty to hide the button.
   liveDemo: "",
