@@ -1,0 +1,14 @@
+{
+  "name": "fieldroom-showcase",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -e \"console.log('Static site build complete')\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
