@@ -2,10 +2,13 @@
 // Fieldroom showcase settings: fill these in, then publish.
 // ============================================================
 const SHOWCASE = {
-  teamName: "Fieldroom Team",
+  teamName: "MK Engineering",
   organization: "Clemson University",
   // One entry per person: { name: "Full Name", role: "What they did" }
-  members: [],
+  members: [
+    { name: "Kelsea Walker", role: "Developer" },
+    { name: "Mackenzie Dilgard", role: "Developer" },
+  ],
 
   // YouTube (Unlisted is fine), Google Drive, or Vimeo link to the demo video.
   demoVideo: "",
