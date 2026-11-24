@@ -4,7 +4,7 @@ A static product introduction for Fieldroom, the construction room matrix protot
 
 ## Update the site
 
-Edit `index.html`, `styles.css`, and `showcase.js`. Set the project repository, AI Studio app, and video URLs in `showcase.js`. Add team names, a recorded product demo, and verified midterm feedback to `index.html` before presenting the showcase.
+Fill in the settings at the top of `showcase.js`: team name and members, the demo video link (YouTube, Google Drive or Vimeo; it is embedded automatically), the published live-demo link, and midterm feedback. Sections with nothing filled in stay hidden. Page content is in `index.html`; images are in `assets/`.
 
 ## Publish
 
