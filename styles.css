@@ -74,3 +74,5 @@
 .next-list b{color:#fff}
 @media(max-width:850px){.next-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.users{grid-template-columns:1fr}}
+
+.next-note{margin:-4px 0 14px;font-size:13.5px;color:#b8c7ba}
