@@ -77,3 +77,39 @@
 
 .next-note{margin:-4px 0 14px;font-size:13.5px;color:#b8c7ba}
 .next-note-after{margin:14px 0 0}
+
+/* Interactive "How Fieldroom is built and how it works" diagram */
+.diagram{background:#000;color:#f2f5f0;border-radius:14px;padding:34px 36px 26px;font-family:'DM Sans',sans-serif}
+.dg-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.dg-eyebrow{font:700 11px 'DM Sans';letter-spacing:.16em;color:#8fa396}
+.diagram h3{font:800 28px/1.15 Manrope,sans-serif;margin:6px 0 0;letter-spacing:-.5px}
+.dg-play{border:1px solid #9ccf9f;background:transparent;color:#9ccf9f;border-radius:8px;padding:10px 16px;font:700 13px 'DM Sans';cursor:pointer}
+.dg-play:hover,.dg-play[aria-pressed="true"]{background:#9ccf9f;color:#0b0f0d}
+.dg-play:focus-visible,.dg-node:focus-visible{outline:3px solid #e0a85a;outline-offset:3px}
+.dg-cols{display:grid;grid-template-columns:1fr 1.15fr;gap:44px}
+.dg-col+.dg-col{border-left:1px solid #26332b;padding-left:44px}
+.dg-col h4{font:800 18px Manrope;margin:0 0 2px}
+.dg-lead{color:#a9b5ad;font-size:14px;margin:0 0 14px}
+.dg-flow{display:grid}
+.dg-node{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#141b17;border:2px solid #33443a;border-radius:14px;padding:12px 16px;color:inherit;cursor:pointer;font:inherit;transition:border-color .2s,background .2s,transform .2s}
+.dg-node:hover{border-color:#9ccf9f}
+.dg-node.ai{border-color:#e0a85a}
+.dg-node.human{border-style:dashed;border-color:#9ccf9f}
+.dg-node.out{background:#9ccf9f;border-color:#9ccf9f;color:#0b0f0d}
+.dg-node.is-active{background:#1f3326;border-color:#d6edac;transform:translateX(4px);box-shadow:0 0 0 3px #d6edac33}
+.dg-node.out.is-active{background:#b9e0b2;color:#0b0f0d}
+.dg-num{font:800 14px Manrope;color:#9ccf9f;width:16px;flex:none;text-align:right}
+.dg-node.out .dg-num{color:#1d4030}
+.dg-ic{width:40px;height:40px;flex:none;border-radius:11px;display:grid;place-items:center;background:#1f3326;color:#9ccf9f}
+.dg-node.ai .dg-ic{background:#3a2c18;color:#e0a85a}
+.dg-node.out .dg-ic{background:#0b0f0d;color:#9ccf9f}
+.dg-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dg-text{min-width:0}.dg-text b{display:block;font:800 17px/1.25 Manrope}
+.dg-text small{display:block;font-size:13.5px;color:#a9b5ad;margin-top:2px}
+.dg-node.out .dg-text small{color:#24402f}
+.dg-link{display:flex;align-items:center;gap:8px;height:34px;padding-left:34px;color:#c9d6cc;font-size:13px;font-weight:600}
+.dg-link svg{width:15px;height:15px;fill:none;stroke:#9ccf9f;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.dg-detail{margin-top:22px;min-height:84px;background:#141b17;border:1px solid #26332b;border-radius:12px;padding:16px 20px;font-size:15px;line-height:1.6;color:#d7e1d8}
+.dg-detail b{color:#fff}.dg-detail .dg-detail-title{display:block;font:800 17px Manrope;color:#d6edac;margin-bottom:4px}
+@media(max-width:850px){.diagram{padding:24px 18px 20px}.dg-cols{grid-template-columns:1fr;gap:28px}.dg-col+.dg-col{border-left:0;padding-left:0;border-top:1px solid #26332b;padding-top:24px}.diagram h3{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.dg-node{transition:none}.dg-node.is-active{transform:none}}
