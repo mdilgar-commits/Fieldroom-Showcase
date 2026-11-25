@@ -16,7 +16,7 @@
   <header class="nav wrap">
     <a class="brand" href="#top" aria-label="Fieldroom home"><img class="brand-logo" src="assets/fieldroom-mark.svg" alt=""><span>fieldroom<span class="brand-dot">.</span></span></a>
     <nav aria-label="Main navigation"><a href="#team">Team</a><a href="#product">Product</a><a href="#features">Features</a><a href="#ai">AI</a><a href="#demo">Demo</a><a href="#improvements">Improvements</a><a href="#next">Next</a></nav>
-    <a class="nav-cta" href="#demo">Watch the demo <span>↓</span></a>
+    <a class="nav-cta" href="#demo" data-live-demo hidden target="_blank" rel="noreferrer">Try the live demo <span>↗</span></a>
   </header>
 
   <main id="top">
@@ -55,7 +55,6 @@
       <div class="intro-grid">
         <h2>Requirements are scattered.<br><em>Rooms are not.</em></h2>
         <div>
-          <p class="section-lede">Fieldroom turns a project’s drawings and specifications into a room-by-room matrix of deliverables, then tracks that work through closeout.</p>
           <p><b>The problem.</b> On every construction project, the requirements for each room are spread across floor plans, specification sections, and scope documents. Teams rebuild that picture by hand in spreadsheets and binders, and items are easy to miss until closeout.</p>
           <p><b>The product.</b> Fieldroom reads the documents with AI, proposes the rooms, trades, and deliverables it finds with their source sections, and lets a project manager confirm each one. The approved list becomes a shared checklist that field crews update from their phones.</p>
           <p><b>Who it is for.</b></p>
@@ -80,7 +79,7 @@
           <article class="feature-card"><span class="feature-number">03</span><div class="feature-icon">☷</div><h3>Tracking project-wide deliverables</h3><p>Submittals, closeout documents, warranties, meetings, and training are tracked for every trade on the job.</p></article>
           <article class="feature-card"><span class="feature-number">04</span><div class="feature-icon">▦</div><h3>QR scanning</h3><p>Each room has its own QR code. Scanning it at the door opens that room’s checklist on a phone.</p></article>
           <article class="feature-card"><span class="feature-number">05</span><div class="feature-icon">↗</div><h3>Making field updates</h3><p>Crews mark items complete, add field notes, and attach photos from the room where the work happens.</p></article>
-          <article class="feature-card"><span class="feature-number">06</span><div class="feature-icon">◔</div><h3>Progress tracking by room and trade</h3><p>Completion rolls up by room and by trade, with an activity log of who changed what and a CSV export for meetings and closeout.</p></article>
+          <article class="feature-card"><span class="feature-number">06</span><div class="feature-icon">◔</div><h3>Progress tracking by room and trade</h3><p>Completion rolls up by room and by trade, with a CSV export for meetings and closeout.</p></article>
         </div>
       </div>
     </section>
@@ -97,10 +96,7 @@
           <ul class="ai-points">
             <li><b>Traceable.</b> Every suggestion cites its source document, page, and section, and Fieldroom checks that the cited document, page, and section exist. Doubtful citations are flagged for the reviewer.</li>
             <li><b>Completeness check.</b> A second AI pass looks only for requirements the first pass missed, and marks anything it adds.</li>
-            <li><b>Human in the loop.</b> Subcontractors, rooms, and requirements are each confirmed or edited.</li>
-            <li><b>Accountable.</b> Every approval, completion, note, and photo is recorded with who made it and when.</li>
             <li><b>Secure.</b> The API key stays on the server and never reaches the browser or the code repository.</li>
-            <li><b>AI-assisted development.</b> Claude Code was used to build, test, and fix the application.</li>
           </ul>
           <p class="small-note">AI suggestions can be incomplete or wrong, so every item is reviewed against its cited source before it is used.</p>
         </div>
@@ -134,7 +130,6 @@
           <div class="video-placeholder"><span class="play-button" aria-hidden="true">▶</span><div class="video-label">PRODUCT WALKTHROUGH</div><p>Demo video coming soon</p></div>
         </div>
       </div>
-      <figure class="wrap workflow-figure"><img src="assets/fieldroom-workflow.png" alt="Fieldroom workflow. In the office: 1 generating room deliverables list, 2 reviewing extracted requirements, 3 tracking project-wide deliverables. On site: 4 QR scanning, 5 making field updates, 6 progress tracking by room and trade." loading="lazy"></figure>
     </section>
 
     <!-- 06 IMPROVEMENTS -->
@@ -142,13 +137,14 @@
       <div class="section-kicker">06 / PRODUCT DEVELOPMENT &amp; IMPROVEMENTS</div>
       <div class="evolution-head"><h2>From midterm prototype<br><em>to a working product.</em></h2><p>At the Midterm Showcase, Fieldroom was a prototype that ran on one computer. Since then the team focused on making it reliable, shareable, and easier to use.</p></div>
       <div class="improvements">
-        <article><div class="imp-num">1</div><div><h3>Application startup issues</h3><p class="was"><b>Before:</b> a startup bug stopped the application from running properly in Google AI Studio.</p><p class="now"><b>Now:</b> the bug is fixed, and Fieldroom is published as a public demo that anyone can open from a link.</p></div></article>
+        <article><div class="imp-num">1</div><div><h3>Application startup issues</h3><p class="was"><b>Before:</b> a startup bug stopped the application from running properly in Google AI Studio, and the published version could not save project changes.</p><p class="now"><b>Now:</b> both are fixed, and Fieldroom is published as a public demo that anyone can open from a link.</p></div></article>
         <article><div class="imp-num">2</div><div><h3>Unreliable room map generation</h3><p class="was"><b>Before:</b> the drawing-based room map glitched repeatedly and could stall the room review.</p><p class="now"><b>Now:</b> a searchable room list replaces the map, and the review moves straight from each room to its requirements. The map was turned off, not deleted, so it can return once it is reliable.</p></div></article>
-        <article><div class="imp-num">3</div><div><h3>API integration problems</h3><p class="was"><b>Before:</b> the Gemini API key was not reaching the application, so it could not communicate with the AI model.</p><p class="now"><b>Now:</b> the key is stored in Google AI Studio’s Secrets panel and sent the way Google’s new keys require. It never appears in the code or the browser.</p></div></article>
+        <article><div class="imp-num">3</div><div><h3>API integration problems</h3><p class="was"><b>Before:</b> the Gemini API key was not reaching the application, so it could not communicate with the AI model.</p><p class="now"><b>Now:</b> the key is stored in Google AI Studio’s Secrets panel and sent the way Google’s new keys require.</p></div></article>
         <article><div class="imp-num">4</div><div><h3>Limited AI usage</h3><p class="was"><b>Before:</b> the original model allowed only about 20 free requests a day.</p><p class="now"><b>Now:</b> Fieldroom uses Gemini 3.5 Flash Lite, which allows about 500 free requests a day, and explains key, quota, and model problems in plain language.</p></div></article>
         <article><div class="imp-num">5</div><div><h3>Code management issues</h3><p class="was"><b>Before:</b> syncing code back from AI Studio overwrote newer fixes, and troubleshooting was hard to trace.</p><p class="now"><b>Now:</b> every fix follows one path, change → review → merge → publish, on its own GitHub branch and pull request, with automated tests and evidence-based troubleshooting.</p></div></article>
         <article><div class="imp-num">6</div><div><h3>Accountability tracking</h3><p class="was"><b>Before:</b> there was no record of who completed, changed, or approved a deliverable.</p><p class="now"><b>Now:</b> the server keeps an activity log of every upload, AI extraction, approval, completion, note, and photo, with who and when. It appears in each deliverable’s history and on the Project progress page, and can be exported to CSV.</p></div></article>
-        <article><div class="imp-num">7</div><div><h3>Improved AI accuracy</h3><p class="was"><b>Before:</b> extraction was a single AI pass, and citations were not checked.</p><p class="now"><b>Now:</b> answers are more consistent, a completeness check finds requirements the first pass missed, and every citation is checked against the uploaded documents, with doubtful items flagged for the reviewer.</p></div></article>
+        <article><div class="imp-num">7</div><div><h3>Improved AI accuracy</h3><p class="was"><b>Before:</b> extraction was a single AI pass, and citations were not checked.</p><p class="now"><b>Now:</b> answers are more consistent, and every extraction gets a second completeness pass and automatic citation checks (see AI Component).</p></div></article>
+        <article><div class="imp-num">8</div><div><h3>Unresponsive buttons</h3><p class="was"><b>Before:</b> in the published app, buttons such as Edit room, Add room, Add deliverable, Add trade, Remove, and Print did nothing, because the preview blocks browser pop-ups and added trades were dropped.</p><p class="now"><b>Now:</b> every button on every page was tested, pop-ups were replaced with on-page dialogs, and added trades are saved.</p></div></article>
       </div>
       <div class="feedback-note" id="feedback"><span>↗</span><p><b>Midterm feedback and lessons learned</b><br><span data-fill="feedback">What we learned and the changes it led to.</span></p></div>
     </section>
@@ -167,7 +163,6 @@
               <li><b>Permanent cloud storage.</b> Projects, documents, photos, and activity history are stored securely with Google Firebase, so nothing is lost when the app restarts.</li>
               <li><b>Multiple projects.</b> Every job gets its own documents, team, room matrix, and progress records, all under one account.</li>
             </ul>
-            <p class="next-note next-note-after">Already included today: accountability tracking and improved AI accuracy (see improvements 6 and 7).</p>
           </div>
           <div>
             <h3 class="next-title">Recommendations</h3>
@@ -175,7 +170,7 @@
               <li><b>Prioritize reliability.</b> Make existing functions work consistently before adding features.</li>
               <li><b>Broaden document compatibility.</b> Test with different drawing formats, specification layouts, and project types.</li>
               <li><b>Simplify navigation.</b> Make switching between project information, room matrices, and deliverables easier for field personnel.</li>
-              <li><b>Improve data security.</b> Add secure document storage and restricted project access before using confidential construction documents.</li>
+              <li><b>Pilot with a real project team.</b> Gather feedback from field users on a live job before expanding features.</li>
               <li><b>Focus on practical applications.</b> Prioritize features that simplify field communication, progress tracking, and closeout.</li>
             </ul>
           </div>
@@ -184,8 +179,8 @@
     </section>
 
     <section class="final-cta wrap" id="links">
-      <div class="final-copy"><div class="section-kicker">EXPLORE FIELDROOM</div><h2>Take a closer look.</h2><p>Browse the source code on GitHub, or watch the product demo above.</p></div>
-      <div class="final-actions"><a class="button button-dark" id="project-link" href="https://github.com/mdilgar-commits/Fieldroom" target="_blank" rel="noreferrer">View the code on GitHub <span>↗</span></a><a class="button button-outline" id="demo-link" href="#demo" hidden target="_blank" rel="noreferrer">Open the live demo <span>↗</span></a></div>
+      <div class="final-copy"><div class="section-kicker">EXPLORE FIELDROOM</div><h2>Take a closer look.</h2><p>Try Fieldroom yourself in the live demo with sample documents, or browse the source code on GitHub.</p></div>
+      <div class="final-actions"><a class="button button-dark" id="project-link" href="https://github.com/mdilgar-commits/Fieldroom" target="_blank" rel="noreferrer">View the code on GitHub <span>↗</span></a><a class="button button-outline" id="demo-link" data-live-demo href="#demo" hidden target="_blank" rel="noreferrer">Open the live demo <span>↗</span></a></div>
     </section>
   </main>
 
