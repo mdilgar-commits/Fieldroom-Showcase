@@ -13,22 +13,22 @@ const SHOWCASE = {
   // YouTube (Unlisted is fine), Google Drive, or Vimeo link to the demo video.
   demoVideo: "https://youtu.be/5q3dTZwLFVY",
 
-  // Published Google AI Studio link (usually ends in .run.app). Leave empty to hide the button.
-  liveDemo: "",
+  // Published Google AI Studio link. Leave empty to hide the live demo buttons.
+  liveDemo: "https://fieldroom-1650.ai.studio",
 
   // Midterm feedback and lessons learned, and what changed because of each.
   // One entry per point: { feedback: "What we learned", change: "What we changed" }
   midtermFeedback: [
     { feedback: "Consider how the product will be used in the field. Some ideas work better on paper than on a jobsite.",
-      change: "Replaced the glitchy drawing map with a searchable room list and focused on QR access and quick field updates." },
+      change: "Replaced the drawing map with a room list (improvement 2)." },
     { feedback: "Tracking progress is one of the most important tools project engineers look for.",
-      change: "Made progress tracking by room and trade a core feature, with completion rolled up across trades and a CSV export." },
+      change: "Made progress by room and trade a core feature (feature 06) and added accountability tracking (improvement 6)." },
     { feedback: "Connecting the API key properly should be the first priority. Without it, the tool does not work.",
-      change: "Moved the Gemini key into AI Studio’s Secrets panel so extraction works reliably and the key never appears in the code." },
+      change: "Fixed the API connection first (improvement 3)." },
     { feedback: "AI needs exact instructions. Leaving room for assumptions is where errors occur.",
-      change: "Fieldroom’s instructions to the AI spell out exactly what to return, including a source citation for every item, and errors now explain what went wrong and how to fix it." },
+      change: "Spelled out exactly what the AI must return, with a source for every item (improvement 7)." },
     { feedback: "The model you choose greatly affects how much you can use the tool.",
-      change: "Switched to Gemini 3.5 Flash Lite for about 500 free requests a day." },
+      change: "Switched to a model with a higher free limit (improvement 4)." },
   ],
 };
 // ============================================================
@@ -86,9 +86,10 @@ if (SHOWCASE.demoVideo) {
 
 // Live demo button
 if (SHOWCASE.liveDemo) {
-  const demo = document.getElementById("demo-link");
-  demo.href = SHOWCASE.liveDemo;
-  demo.hidden = false;
+  document.querySelectorAll("[data-live-demo]").forEach(link => {
+    link.href = SHOWCASE.liveDemo;
+    link.hidden = false;
+  });
 }
 
 // Midterm feedback
